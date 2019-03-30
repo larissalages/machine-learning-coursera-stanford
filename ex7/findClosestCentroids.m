@@ -19,9 +19,18 @@ idx = zeros(size(X,1), 1);
 %               range 1..K
 %
 % Note: You can use a for-loop over the examples to compute this.
-%
 
-
+for i=1:size(X,1)
+    current_dist = inf;
+    for j=1:K
+        dist = norm(X(i,:) - centroids(j,:))^2;
+        if (dist < current_dist )
+            current_dist = dist;
+            idx(i) = j;
+        end
+ 
+    end
+end
 
 
 
